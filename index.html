@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Content Safety | NSFW Classification</title>
-    <meta name="description" content="Advanced AI-powered NSFW image classification. Upload your image for instant analysis.">
+    <meta name="description"
+        content="Advanced AI-powered NSFW image classification. Upload your image for instant analysis.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,18 +15,19 @@
 </head>
 <body>
     <div class="background-glow"></div>
-    
+
     <main class="container">
         <header class="hero">
             <div class="badge">AI Powered V1.0</div>
             <h1>Content Safety <span class="gradient-text">Analyzer</span></h1>
-            <p class="subtitle">Upload an image to detect NSFW content with high precision using our ONNX-powered model.</p>
+            <p class="subtitle">Upload an image to detect NSFW content with high precision using our ONNX-powered model.
+            </p>
         </header>
 
         <div class="app-interface">
             <!-- Left Side: Upload -->
             <div class="upload-section glass-card">
-                <div class="upload-area" id="drop-zone">
+                <label class="upload-area" id="drop-zone" for="file-input">
                     <input type="file" id="file-input" accept="image/*" hidden>
                     <div class="upload-content">
                         <div class="icon-circle">
@@ -39,7 +41,7 @@
                         <img id="image-preview" src="" alt="Preview">
                         <button class="remove-btn" id="remove-btn"><i class="fa-solid fa-xmark"></i></button>
                     </div>
-                </div>
+                </label>
                 <button id="analyze-btn" class="primary-btn" disabled>
                     <span>Analyze Content</span>
                     <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -105,7 +107,7 @@
                 </div>
             </div>
         </div>
-        
+
         <footer>
             <p>&copy; 2025 AI Safety Lab. Powered by HuggingFace Spaces.</p>
         </footer>

@@ -29,13 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'https://n4xtan-nsfw-classification.hf.space/predict';
 
     // Event Listeners
-    // Make the whole drop zone clickable
-    dropZone.addEventListener('click', () => fileInput.click());
-    
-    fileInput.addEventListener('click', (e) => {
-        // Prevent bubbling up to dropZone which would cause an infinite loop
-        e.stopPropagation();
-    });
+
     
     fileInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
