@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Content Safety | NSFW Classification</title>
+    <meta name="description" content="Advanced AI-powered NSFW image classification. Upload your image for instant analysis.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-glow"></div>
+    
+    <main class="container">
+        <header class="hero">
+            <div class="badge">AI Powered V1.0</div>
+            <h1>Content Safety <span class="gradient-text">Analyzer</span></h1>
+            <p class="subtitle">Upload an image to detect NSFW content with high precision using our ONNX-powered model.</p>
+        </header>
+
+        <div class="app-interface">
+            <!-- Left Side: Upload -->
+            <div class="upload-section glass-card">
+                <div class="upload-area" id="drop-zone">
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3>Upload Image</h3>
+                        <p>Drag & drop or <span class="clickable" id="browse-btn">browse</span></p>
+                        <p class="limit-text">Supports JPG, PNG, WEBP</p>
+                    </div>
+                    <div class="preview-container hidden" id="preview-container">
+                        <img id="image-preview" src="" alt="Preview">
+                        <button class="remove-btn" id="remove-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                <button id="analyze-btn" class="primary-btn" disabled>
+                    <span>Analyze Content</span>
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </button>
+            </div>
+
+            <!-- Right Side: Results -->
+            <div class="results-section glass-card" id="results-section">
+                <div class="empty-state" id="empty-state">
+                    <div class="placeholder-chart">
+                        <i class="fa-solid fa-chart-simple"></i>
+                    </div>
+                    <h3>Ready to Analyze</h3>
+                    <p>Results will appear here after you upload and analyze an image.</p>
+                </div>
+
+                <div class="loading-state hidden" id="loading-state">
+                    <div class="spinner"></div>
+                    <p>Processing image...</p>
+                </div>
+
+                <div class="analysis-result hidden" id="analysis-result">
+                    <div class="verdict-card" id="verdict-card">
+                        <span class="verdict-label">Prediction</span>
+                        <h2 id="verdict-text">Safe</h2>
+                        <div class="confidence-badge" id="verdict-confidence">99.9%</div>
+                    </div>
+
+                    <div class="scores-list">
+                        <!-- Safe Score -->
+                        <div class="score-item">
+                            <div class="score-header">
+                                <span class="label"><i class="fa-solid fa-shield-halved"></i> Safe</span>
+                                <span class="value" id="score-safe">0%</span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-fill safe-color" id="bar-safe" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Mild Score -->
+                        <div class="score-item">
+                            <div class="score-header">
+                                <span class="label"><i class="fa-solid fa-triangle-exclamation"></i> NSFW Mild</span>
+                                <span class="value" id="score-mild">0%</span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-fill mild-color" id="bar-mild" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Explicit Score -->
+                        <div class="score-item">
+                            <div class="score-header">
+                                <span class="label"><i class="fa-solid fa-ban"></i> NSFW Explicit</span>
+                                <span class="value" id="score-explicit">0%</span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-fill explicit-color" id="bar-explicit" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2025 AI Safety Lab. Powered by HuggingFace Spaces.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
