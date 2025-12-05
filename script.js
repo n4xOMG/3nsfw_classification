@@ -107,6 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingState.classList.remove('hidden');
         analysisResult.classList.add('hidden');
         analyzeBtn.disabled = true;
+        
+        // Start scanning effect
+        previewContainer.classList.add('scanning');
 
         const formData = new FormData();
         formData.append('image', currentFile);
@@ -131,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } finally {
             loadingState.classList.add('hidden');
             analyzeBtn.disabled = false;
+            // Stop scanning effect
+            previewContainer.classList.remove('scanning');
         }
     }
 
